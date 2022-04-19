@@ -1,17 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Registration from './components/Registration'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import ContactList from './components/ContactList'
+import Login from './components/Login'
+import ChatList from './components/ChatList'
+import Chat from './components/Chat'
+import AddContact from './components/AddContact'
+import {store} from './store/store'
+import {Provider} from 'react-redux'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ReactDOM.render(<Provider store={store}>
+<BrowserRouter>
+<Routes>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+<Route path="/" element={  <Login />}  />
+    <Route path="/register" element={  <Registration />}  />
+    <Route path="/login" element={  <Login /> }  />
+    <Route path="/contactlist" element={  <ContactList />}  />
+    <Route path="/addcontact" element={  <AddContact />}  />
+    <Route path="/chatlist" element={  <ChatList/>}  />
+    <Route path="/chat" element={  <Chat/>}  />
+    <Route path="*" element={  <div>Url not found</div>}  />
+
+    </Routes>
+    </BrowserRouter>
+</Provider>, document.getElementById('root'))
+
+//create account
+//login
+//add contacts
+//delete contacts
+//contact list
+//clicking that contact should open chat between contact and you.
+//we can start the chat
+
+// redux
+// user details
+// Chat history
+// contact list

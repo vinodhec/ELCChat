@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
+import InputFields from './InputFields'
 
 export default ()=>{
     const navigate = useNavigate();
@@ -12,14 +13,10 @@ export default ()=>{
     // whatever u return with the callback function u pass to useSelector, will be assigned to that variable.
     console.log(users);
 
+    const fields =[ {placeholder:'Phone No', name:'phoneNo'},{placeholder:'Password',type:'password', name:'pass'}]
+
     const [user, setUser] = useState({})
 
-    const updateValue = (e) => {
-        setUser({
-            ...user,
-            [e.target.name]: e.target.value
-        })
-    }
     const login = () => {
         if (users.some(usr => usr.phoneNo === user.phoneNo && usr.pass === user.pass)) {
             navigate('/chatlist');
@@ -28,9 +25,8 @@ export default ()=>{
         }
     }
 return <div>
-    <input onChange={updateValue} name="phoneNo" placeholder="Phone No" />
-    
-<input name="pass" onChange={updateValue} type="pass" placeholder="Password" />
+   
+   <InputFields onUpdate={setUser} value={user} fields={fields} />
 <button onClick={login}> Login</button>
 </div>
 

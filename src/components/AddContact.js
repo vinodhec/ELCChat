@@ -6,7 +6,7 @@ export default () => {
 const dispatch= useDispatch();
     const [contact, setContact] = useState({})
 
-    const fields =[{placeholder:'Name', name:'name'}, {placeholder:'Phone No', name:'phoneNo'},{placeholder:'City',name:'city'}, {placeholder:'Home Phone No',name:'hphoneNo'},{placeholder:'Password',type:'password', name:'pass'}]
+    const fields =[{placeholder:'Name', name:'name'}, {placeholder:'Phone No', name:'phoneNo'}]
   
     const addContact=()=>{
         dispatch({type:'ADD_CONTACT', value:contact})

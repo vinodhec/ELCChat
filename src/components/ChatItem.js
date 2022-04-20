@@ -1,8 +1,14 @@
 import React from 'react';
+import './ChatItem.css'
 
+export default ({chat})=>{
 
-export default ()=>{
+     const {name,texts} = chat || {};
+    const [message,] = texts;
+    const {text,time,date} = message || {};
 
-    return <div>Chat Item</div>
+    return <button>{name} {text} {time} {date}
+    {/* <button>test</button> */}
+    </button>
 
 }

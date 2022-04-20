@@ -7,7 +7,6 @@ export default ({fields, onUpdate,value}) => {
             [e.target.name]: e.target.value
         })
     }
-  
     return <div>
 
     {fields.map((field => {

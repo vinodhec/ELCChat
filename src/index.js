@@ -20,7 +20,9 @@ ReactDOM.render(<Provider store={store}>
     <Route path="/contactlist" element={  <ContactList />}  />
     <Route path="/addcontact" element={  <AddContact />}  />
     <Route path="/chatlist" element={  <ChatList/>}  />
-    <Route path="/chat" element={  <Chat/>}  />
+    <Route path="/chat" element={  <Chat/>}  >
+{/* <Route path=":contactId" element={<Chat />} /> */}
+        </Route>
     <Route path="*" element={  <div>Url not found</div>}  />
 
     </Routes>

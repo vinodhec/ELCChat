@@ -13,7 +13,8 @@ const initialState=[{
         isSent:true,
     }],
     userId:'214',
-    name:'Arun'
+    name:'Arun',
+    img:'https://randomuser.me/portraits/men/66.jpg'
     
 },
 {
@@ -30,12 +31,29 @@ const initialState=[{
         isSent:true,
     }],
     userId:'214',
-    name:'Prem'
+    name:'Prem',
+    img:'https://randomuser.me/portraits/men/23.jpg'
+
     
 }
 ];
 
 export default (state =initialState,action)=>{
+if(action.type === 'SEND_CHAT'){
+    const temp = [...state]
+    const contactIndex = state.findIndex((chat)=>{
+        return chat.contactId ===action.contactId
+    });
 
+    const chatMessage ={
+        text:action.value,
+        date:new Date().toLocaleDateString(),
+        time:new Date().toLocaleTimeString(),
+        isSent:true,
+    }
+
+    temp[contactIndex].texts.push(chatMessage);
+    return temp
+}
     return state
 }
